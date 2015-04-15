@@ -136,8 +136,8 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
         'Laracasts\Commander\CommanderServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
-        
+
+
 
 		/*
 		 * Application Service Providers...
