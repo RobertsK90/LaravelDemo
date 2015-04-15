@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Repositories\CommentRepositoryInterface;
+use App\Repositories\PostRepositoryInterface;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller {
@@ -37,15 +39,22 @@ class PostsController extends Controller {
 		//
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param $slug
+     * @param \App\Repositories\PostRepositoryInterface $post
+     * @param \App\Repositories\CommentRepositoryInterface $comment
+     * @internal param int $id
+     * @return Response
+     */
+	public function show($slug, PostRepositoryInterface $posts, CommentRepositoryInterface $comment)
 	{
-		//
+	    $post = $posts->findPost($slug);
+        $comments = $comment->getComments($post->id);
+        return view('posts.show', compact('post','comments'));
+
+
 	}
 
 	/**

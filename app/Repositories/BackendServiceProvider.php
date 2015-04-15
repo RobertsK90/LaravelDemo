@@ -9,5 +9,10 @@ class BackendServiceProvider extends ServiceProvider {
             'App\Repositories\DbPostRepository'
         );
 
+        $this->app->bind(
+            'App\Repositories\CommentRepositoryInterface',
+            'App\Repositories\DbCommentRepository'
+        );
+
     }
 }

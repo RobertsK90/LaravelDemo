@@ -14,9 +14,10 @@ class DbPostRepository implements PostRepositoryInterface {
         return $this->post->with('user')->paginate(3);
     }
 
-    public function find($id){
-
+    public function findPost($slug){
+        return $this->post->where('slug', '=', $slug)->first();
     }
+
 
 
 
