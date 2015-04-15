@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
                 "username" => $faker->unique()->word,
                 "password" => Hash::make("12345"),
                 "email" => $faker->unique()->email,
+                "avatar" => $faker->imageUrl($width = 64, $height = 64),
                 "created_at" => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
 
             ]);

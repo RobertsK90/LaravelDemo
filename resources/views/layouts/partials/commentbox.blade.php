@@ -1,6 +1,10 @@
 <div class="well">
     <h4>Leave a Comment:</h4>
-    {!!Form::open()!!}
+
+    @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+    @endforeach
+    {!!Form::open(['route' => 'comments.store'])!!}
         <div class="form-group">
             {!!Form::textarea('comment', '', ['class' => 'form-control', 'rows' => 3])!!}
         </div>

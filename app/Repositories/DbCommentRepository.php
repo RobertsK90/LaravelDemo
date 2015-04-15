@@ -15,6 +15,10 @@ class DbCommentRepository implements CommentRepositoryInterface {
     }
 
     public function getComments($postId) {
-        return $this->comment->orderBy('created_at','desc')->with('user')->where('post_id', '=', $postId)->get();
+        return $this->comment
+            ->orderBy('created_at','desc')
+            ->with('user')
+            ->where('post_id', '=', $postId)
+            ->paginate(10);
     }
 }

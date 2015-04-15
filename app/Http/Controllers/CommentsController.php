@@ -3,7 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\AddCommentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CommentsController extends Controller {
 
@@ -32,9 +34,9 @@ class CommentsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(AddCommentRequest $addCommentRequest)
 	{
-		//
+		dd('Called');
 	}
 
 	/**

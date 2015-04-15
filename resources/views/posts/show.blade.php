@@ -38,7 +38,7 @@
             @if(Auth::check())
                 @include('layouts.partials.commentbox')
             @else
-                <h4>Please, {!!link_to('login', 'Log in')!!} to leave a comment</h4>
+                <h4>Please, {!!link_to('auth/login', 'Log in')!!} to leave a comment</h4>
             @endif
 
 
@@ -46,6 +46,7 @@
 
             <!-- Posted Comments -->
             @include('layouts.partials.comments')
+            {!!$comments->appends(Request::except('page'))->render()!!}
 
 
 

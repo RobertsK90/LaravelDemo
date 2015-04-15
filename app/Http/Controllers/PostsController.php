@@ -43,8 +43,9 @@ class PostsController extends Controller {
      * Display the specified resource.
      *
      * @param $slug
-     * @param \App\Repositories\PostRepositoryInterface $post
+     * @param \App\Repositories\PostRepositoryInterface $posts
      * @param \App\Repositories\CommentRepositoryInterface $comment
+     * @internal param \App\Repositories\PostRepositoryInterface $post
      * @internal param int $id
      * @return Response
      */

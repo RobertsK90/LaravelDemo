@@ -17,7 +17,7 @@
                 {!! link_to_route('post.show', $post->title, [$post->slug]) !!}
             </h2>
             <p class="lead">
-                by <a href="index.php">{{$post->user->username}}</a>
+                by <span class="glyphicon glyphicon-user"></span><a href="index.php">{{$post->user->username}}</a>
             </p>
             <p><span class="glyphicon glyphicon-time"></span> Posted on {{$post->created_at}}</p>
             <hr>
