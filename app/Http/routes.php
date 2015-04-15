@@ -2,5 +2,5 @@
 
 
 Route::get('/',function(){
-    dd(DB::connection()->getDatabaseName());
+    return view('master');
 });
