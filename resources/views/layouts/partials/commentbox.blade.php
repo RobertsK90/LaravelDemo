@@ -8,6 +8,7 @@
         <div class="form-group">
             {!!Form::textarea('comment', '', ['class' => 'form-control', 'rows' => 3])!!}
         </div>
+        {!!Form::hidden('post_id', $post->id)!!}
         {!!Form::submit('Comment', ['class' => 'btn btn-primary'])!!}
     {!!Form::close()!!}
 </div>
