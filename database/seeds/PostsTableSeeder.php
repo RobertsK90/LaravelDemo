@@ -24,6 +24,7 @@ class PostsTableSeeder extends Seeder
                 "title" => $title,
                 "slug" => Str::slug($title),
                 "body" => $faker->text($maxNbChars = 500),
+                "image" => $faker->imageUrl($width = 900, $height = 300),
                 "created_at" => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
             ]);
         }
