@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreatePostsTable extends Migration
 {
@@ -14,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->length(10)->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('slug')->unique();

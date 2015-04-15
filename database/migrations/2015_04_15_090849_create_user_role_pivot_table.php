@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
-class CreateRoleUserPivotTable extends Migration
+class CreateUserRolePivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +13,10 @@ class CreateRoleUserPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_user', function(Blueprint $table) {
-            $table->integer('role_id')->unsigned()->index();
+        Schema::create('user_role', function(Blueprint $table) {
+            $table->integer('role_id')->length(10)->unsigned()->index();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->integer('user_id')->unsigned()->index();
+            $table->integer('user_id')->length(10)->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -27,6 +28,6 @@ class CreateRoleUserPivotTable extends Migration
      */
     public function down()
     {
-        Schema::drop('role_user');
+        Schema::drop('user_role');
     }
 }
