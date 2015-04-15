@@ -20,31 +20,18 @@ class CommentsController extends Controller {
         $this->commandBus = $commandBus;
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Stores new comment in the DB. AddCommentRequest that is injected
+     * into the method provides the form validation - if validation passes then
+     * and only then the code of the function is executed, otherwise errors are displayed
+     * above the form.
+     *
+     * Comment is persisted using Command Pattern. CommandBus is just a transport for the data.
+     * AddCommentCommand is executed by the Handler.
+     *
+     * @param \App\Http\Requests\AddCommentRequest $addCommentRequest
+     * @return Response
+     */
 	public function store(AddCommentRequest $addCommentRequest)
 	{
         extract(Input::only('post_id', 'comment'));
@@ -52,19 +39,10 @@ class CommentsController extends Controller {
 
         $this->commandBus->execute(new AddCommentCommand($user_id, $post_id, $comment));
 
-        return Redirect::home();
+        return Redirect::back();
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+
 
 	/**
 	 * Show the form for editing the specified resource.

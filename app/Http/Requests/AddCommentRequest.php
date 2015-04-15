@@ -7,6 +7,7 @@ class AddCommentRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
+     * Only authenticated users are able to post the comment form.
 	 *
 	 * @return bool
 	 */

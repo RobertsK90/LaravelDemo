@@ -40,7 +40,9 @@ class PostsController extends Controller {
 	}
 
     /**
-     * Display the specified resource.
+     * Display the specified resource. Repository pattern used here as eloquent is abstracted away behind the
+     * RepositoryInterface and data source could be easily swaped out for something else. Interface is currently bound
+     * to the Eloquent specific class in BackendServiceProvider.
      *
      * @param $slug
      * @param \App\Repositories\PostRepositoryInterface $posts

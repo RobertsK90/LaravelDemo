@@ -13,6 +13,11 @@ class AddCommentCommandHandler implements CommandHandler {
         $this->repo = $repo;
     }
 
+    /**
+     * @param $command
+     * @return mixed|void
+     * Handler persists the comment to the data store
+     */
     public function handle($command){
         $comment = Comment::add(
             $command->user_id, $command->post_id, $command->comment
