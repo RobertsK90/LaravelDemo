@@ -1,6 +1,8 @@
 <?php
 
 
-Route::get('/',function(){
-    return view('posts.index');
-});
+
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'PagesController@home'
+]);
