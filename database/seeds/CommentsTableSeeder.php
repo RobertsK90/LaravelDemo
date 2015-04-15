@@ -22,7 +22,7 @@ class CommentsTableSeeder extends Seeder
             Comment::create([
                 "user_id" => $faker->randomElement($users),
                 "post_id" => $faker->randomElement($posts),
-                "body" => $faker->text($maxNbChars = 100),
+                "comment" => $faker->text($maxNbChars = 100),
                 "created_at" => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
             ]);
         }

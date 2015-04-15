@@ -21,4 +21,8 @@ class DbCommentRepository implements CommentRepositoryInterface {
             ->where('post_id', '=', $postId)
             ->paginate(10);
     }
+
+    public function save(Comment $comment) {
+        return $comment->save();
+    }
 }

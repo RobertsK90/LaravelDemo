@@ -7,7 +7,7 @@
         <h4 class="media-heading">{{$comment->user->username}}
             <small>{{$comment->created_at}}</small>
         </h4>
-        {{$comment->body}}
+        {{$comment->comment}}
     </div>
 </div>
 @endforeach

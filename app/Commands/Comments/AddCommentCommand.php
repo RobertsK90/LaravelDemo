@@ -2,11 +2,11 @@
 
 class AddCommentCommand {
 
-    protected $user_id;
+    public $user_id;
 
-    protected $post_id;
+    public $post_id;
 
-    protected $comment;
+    public $comment;
 
     function __construct($user_id, $post_id, $comment) {
         $this->user_id = $user_id;

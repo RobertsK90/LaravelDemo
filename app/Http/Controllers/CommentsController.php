@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Laracasts\Commander\CommandBus;
 
 class CommentsController extends Controller {
@@ -49,9 +50,9 @@ class CommentsController extends Controller {
         extract(Input::only('post_id', 'comment'));
         $user_id = Auth::user()->id;
 
-		$command = new AddCommentCommand($user_id, $post_id, $comment);
+        $this->commandBus->execute(new AddCommentCommand($user_id, $post_id, $comment));
 
-        $this->commandBus->execute($command);
+        return Redirect::home();
 	}
 
 	/**
